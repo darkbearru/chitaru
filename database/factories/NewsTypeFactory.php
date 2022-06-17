@@ -14,31 +14,11 @@ class NewsTypeFactory extends Factory
      * @var array|string[][]
      */
     protected array $default = [
-        [
-            'id' => '1',
-            'name' => 'Новости',
-            'token' => 'news'
-        ],
-        [
-            'id' => '2',
-            'name' => 'Статьи',
-            'token' => 'articles'
-        ],
-        [
-            'id' => '4',
-            'name' => 'Фоторепортажи',
-            'token' => 'photos'
-        ],
-        [
-            'id' => '5',
-            'name' => 'Обзоры',
-            'token' => 'reviews'
-        ],
-        [
-            'id' => '9',
-            'name' => 'Блоги',
-            'token' => 'blogs'
-        ]
+        ['id' => '1', 'name' => 'Новости', 'token' => 'news'],
+        ['id' => '2', 'name' => 'Статьи', 'token' => 'articles'],
+        ['id' => '4', 'name' => 'Фоторепортажи', 'token' => 'photos'],
+        ['id' => '5', 'name' => 'Обзоры', 'token' => 'reviews'],
+        ['id' => '9', 'name' => 'Блоги', 'token' => 'blogs']
     ];
 
     /**
