@@ -10,12 +10,34 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
+    protected array $default = [
+        [
+            'name'  => 'Новости',
+            'token' => 'news'
+        ],
+        [
+            'name'  => 'Статьи',
+            'token' => 'articles'
+        ],
+        [
+            'name'  => 'Обзоры',
+            'token' => 'reviews'
+        ],
+        [
+            'name'  => 'Фотографии',
+            'token' => 'photos'
+        ],
+        [
+            'name'  => 'Блоги',
+            'token' => 'blogs'
+        ]
+    ];
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->name(),
