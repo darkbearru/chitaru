@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class News extends Model
 {
@@ -14,22 +13,12 @@ class News extends Model
 
     protected $guarded = [];
 
-    public static function Latest(): Collection
+    public static function Recs(int $perPage = 5): LengthAwarePaginator
     {
-        return self::DateFormat(self::with(['type'])->get());
-//        return self::with(['type', 'region', 'category'])->paginate(10);
+        return self::with(['type'])->paginate($perPage);
+//        return self::with(['type'])->cursorPaginate($perPage);
     }
 
-    protected static function DateFormat(Collection $list): Collection
-    {
-        foreach ($list as $item) {
-            $item->published_at =
-                Carbon::createFromFormat('Y-m-d H:i:s', $item->published_at)
-                    ->locale('ru')
-                    ->isoFormat('Do MMMM, HH:mm');
-        }
-        return $list;
-    }
 
     public function type(): BelongsTo
     {

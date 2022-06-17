@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\News;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+$newsController = new NewsController();
 
-Route::get('/', function () {
+Route::get('/', function () use ($newsController) {
     return view('main-page', [
-        'news' => News::Latest()
+        'news' => $newsController->Items()
     ]);
 });

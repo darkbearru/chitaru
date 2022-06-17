@@ -1,5 +1,5 @@
 <x-layout>
-    @foreach($news as $news_item)
+    @foreach($news->items as $news_item)
         <x-news-item :item="$news_item"/>
     @endforeach
 </x-layout>
