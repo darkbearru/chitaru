@@ -18,3 +18,6 @@ composer.lock
 package-lock.json
 .styleci.yml
 .editorconfig
+*.map
+mix-manifest.json
+.DS_Store
