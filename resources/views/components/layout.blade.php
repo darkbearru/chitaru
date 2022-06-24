@@ -5,6 +5,7 @@
     <!--link href="/favicon.ico" rel="icon"/-->
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Chita.Ru</title>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -16,5 +17,6 @@
 
 <x-footer/>
 
+<script src="{{ asset('/js/flowbite.js') }}"></script>
 </body>
 </html>
