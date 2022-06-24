@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use App\Models\News;
 use App\Models\NewsType;
 use App\Models\Region;
 use Illuminate\Database\Seeder;
@@ -22,6 +21,6 @@ class DatabaseSeeder extends Seeder
         NewsType::factory(5)->create();
         Region::factory(40)->create();
         Category::factory(30)->create();
-        News::factory(15)->create();
+        //News::factory(15)->create();
     }
 }
