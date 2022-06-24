@@ -3,20 +3,10 @@
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-$newsController = new NewsController();
+Route::get('/', [NewsController::class, 'index']);
 
-Route::get('/', function () use ($newsController) {
-    return view('main-page', [
-        'news' => $newsController->Items()
-    ]);
-});
+Route::get('/{type}/{id?}/', [NewsController::class, 'showByType'])
+    ->where(['type' => '(news|articles|review|photos)', 'id' => '\d+']);
+
+Route::get('/blogs/{author}/{id?}/', [NewsController::class, 'showBlogs'])
+    ->where(['type' => '[-_a-zA-Z\d]+', 'id' => '\d+']);
